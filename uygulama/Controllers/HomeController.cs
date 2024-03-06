@@ -21,24 +21,18 @@ namespace uygulama.Controllers
         {
             return View(_repo.Products);
         }
-        
 
-        public IActionResult SogukIcecekler()
+
+        public IActionResult UrunleriGoster(int productTypeId)
         {
-            return View();
-        }
-        public IActionResult SicakIcecekler()
-        {
-            return View();
-        }
-        public IActionResult Yemekler()
-        {
-            return View();
-        }
-        public IActionResult Tatlilar()
-        {
-            return View();
-        }
+            var arananProduct = _repo.Products.Where(p => p.ProductTypeID == productTypeId);
+            string turu = _repo.ProductTypes.FirstOrDefault(x => x.ID == productTypeId).Name;
+            ViewBag.Turu = turu;
+            return View(arananProduct);
+        } 
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
