@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using uygulama.Entities;
 using uygulama.Models;
 using uygulama.Models.Context;
 using uygulama.Repositories;
@@ -16,11 +17,13 @@ namespace uygulama.Controllers
             _logger = logger;
             _repo = repo;
         }
-
+        
         public IActionResult Index()
         {
             return View(_repo.Products);
         }
+
+        
 
 
         public IActionResult UrunleriGoster(int productTypeId)
@@ -29,7 +32,13 @@ namespace uygulama.Controllers
             string turu = _repo.ProductTypes.FirstOrDefault(x => x.ID == productTypeId).Name;
             ViewBag.Turu = turu;
             return View(arananProduct);
-        } 
+        }
+
+        public IActionResult DetayGoster(int productId)
+        {
+            var arananProduct = _repo.Products.Where(p => p.ID == productId);
+            return View(arananProduct);
+        }
 
 
 

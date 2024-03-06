@@ -1,17 +1,20 @@
-﻿
+﻿@model List<Product>
 
-@model List<Product>
-
-@foreach (Product item in Model)
-{
-    <div class="card">
-        <div class="card-header">@item.Name</div>
-        <div class="card-body">
-            <img src="data:image;base64,@Convert.ToBase64String(@item.Image)" alt="Resim" />
+<div class="row">
+    @foreach (Product item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="data:image;base64,@Convert.ToBase64String(@item.Image)" class="card-img-top" alt="Resim" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <p class="card-text"><strong>Price:</strong> $@item.Price</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="Home" asp-action="DetayGoster" asp-route-productId="@item.ID" class="btn btn-primary">Detay</a>
+                </div>
+            </div>
         </div>
-        <div class="card-footer">
-            <p>@item.Description</p><br />
-            <p>@item.Price</p>
-        </div>
-    </div>
-}
+    }
+</div>
