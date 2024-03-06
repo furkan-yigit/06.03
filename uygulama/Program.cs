@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using uygulama.Models;
+using uygulama.Models.Context;
+using uygulama.Repositories;
+
 namespace uygulama
 {
     public class Program
@@ -8,6 +13,9 @@ namespace uygulama
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-NNPAIJ5; Database=KHP; Uid=sa; Pwd=789;"));
+
+            builder.Services.AddTransient<IProductRepo, ProductRepo>();
 
             var app = builder.Build();            
 
@@ -25,6 +33,7 @@ namespace uygulama
             app.UseRouting();
 
             app.UseAuthorization();
+            SeedData.Seed(app);
 
             app.MapControllerRoute(
                 name: "default",
