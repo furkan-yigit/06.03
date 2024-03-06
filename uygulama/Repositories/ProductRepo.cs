@@ -4,6 +4,10 @@ namespace uygulama.Repositories
 {
     public class ProductRepo : IProductRepo
     {
+
+        #region SeedData
+
+        
         public IQueryable<Product> Products => new List<Product>()
         {
             //***Sicaklar***
@@ -67,7 +71,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Aqua Fresca",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/aqua-fresca.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/agua-fresca.jpg"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 2
@@ -130,7 +134,7 @@ namespace uygulama.Repositories
             },new Product
             {
                 Name = "Iced White Chocalate Mocha",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/iced-white-chocalate-mocha.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/iced-white-chocolate-mocha.jpg"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 2
@@ -151,7 +155,7 @@ namespace uygulama.Repositories
             },new Product
             {
                 Name = "Strawberry Smoothie",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/strawberry-smoothie.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/strawberry-smoothie.jpg"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 2
@@ -240,7 +244,7 @@ namespace uygulama.Repositories
             },new Product
             {
                 Name = "Food1",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/food1.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/food1.jpeg"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 4
@@ -317,6 +321,8 @@ namespace uygulama.Repositories
             },
 
         }.AsQueryable();
+
+        #endregion
 
         public IQueryable<ProductType> ProductTypes => new List<ProductType>
         {
