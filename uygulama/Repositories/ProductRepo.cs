@@ -105,8 +105,8 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
-                Name = "Dondurmali Frappe",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/dondurmali-frappe.png"),
+                Name = "Dondurmalı Frappe",
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/dondurmalı-frappe.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 2
@@ -179,7 +179,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Cikolatali Marlenka",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/cikolatali-marlenka.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/cikolatalı-marlenka.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 3
@@ -237,7 +237,7 @@ namespace uygulama.Repositories
             },new Product
             {
                 Name = "Firinda Tavuk Baget",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/firinda-tavuk-baget.jpg"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/fırında-tavuk-baget.jpg"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 4
@@ -300,7 +300,7 @@ namespace uygulama.Repositories
             },new Product
             {
                 Name = "Su Boregi",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/su-boregi.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/su-böregi.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 4
