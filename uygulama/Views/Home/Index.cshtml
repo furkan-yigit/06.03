@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <h2>Hoş Geldiniz!</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Carousel -->
+            <div id="carouselExample" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach (var image in (List<byte[]>)ViewData["CarouselImages"])
+                    {
+                        <div class="carousel-item">
+                            <img src="data:image/png;base64,@Convert.ToBase64String(image)" class="d-block w-100" alt="Carousel Image">
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Dropdown -->
+            <div class="dropdown mt-4">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ürün Türü Seçin
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="@Url.Action("Index", new { productType = "Sıcak İçecekler" })">Sıcak İçecekler</a>
+                    <a class="dropdown-item" href="@Url.Action("Index", new { productType = "Soğuk İçecekler" })">Soğuk İçecekler</a>
+                    <a class="dropdown-item" href="@Url.Action("Index", new { productType = "Yemekler" })">Yemekler</a>
+                    <a class="dropdown-item" href="@Url.Action("Index", new { productType = "Tatlılar" })">Tatlılar</a>
+                    <a class="dropdown-item" href="@Url.Action("Index")">Tüm Ürünler</a>
+                </div>
+            </div>
+
+            <!-- Ürün Listesi -->
+            <div id="productList" class="mt-4">
+                @Html.Partial("_ProductList", (List<Product>)ViewData["Products"])
+            </div>
+        </div>
+    </div>
+</div>
