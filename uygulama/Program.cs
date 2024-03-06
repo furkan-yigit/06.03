@@ -13,7 +13,7 @@ namespace uygulama
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"DESKTOP-JI3UVS4; Database=CoffeeWebSite; Uid=sa; Pwd=123;"));
+            builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server= DESKTOP-JI3UVS4; Database=CoffeeWebSite; Uid=sa; Pwd=123;"));
 
             builder.Services.AddTransient<IProductRepo, ProductRepo>();
 
