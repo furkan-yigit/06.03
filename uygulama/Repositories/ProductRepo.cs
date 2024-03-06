@@ -9,7 +9,7 @@ namespace uygulama.Repositories
             new Product()
             {
                 Name = "Espresso",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/espresso.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/espresso.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 1
@@ -17,7 +17,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Cafe Latte",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/cafe-latte.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cafe-latte.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 1
@@ -25,7 +25,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Cafe Mocha",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/cafe-mocha.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cafe-mocha.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 1
@@ -33,7 +33,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Cappucino",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/cappucino.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cappucino.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 1
@@ -41,7 +41,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Americano",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/americano.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/americano.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 1
@@ -49,7 +49,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Espresso Macchiato",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/espresso-macchiato.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/espresso-macchiato.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 1
@@ -57,7 +57,7 @@ namespace uygulama.Repositories
             new Product
             {
                 Name = "Turk Kahvesi",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/turk-kahvesi.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/turk-kahvesi.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 1
@@ -66,10 +66,10 @@ namespace uygulama.Repositories
 
         public IQueryable<ProductType> ProductTypes => new List<ProductType>
         {
-            new ProductType(){ID=1,Name="Sicak icecekler"},
-            new ProductType(){ID=2,Name="Soguk icecekler"},
-            new ProductType(){ID=3,Name="Tatli"},
-            new ProductType(){ID=4,Name="Yemek"}
+            new ProductType(){ID=1,Name="Sicak icecekler", Type="sicak"},
+            new ProductType(){ID=2,Name="Soguk icecekler", Type="sicak"},
+            new ProductType(){ID=3,Name="Tatli", Type="sicak"},
+            new ProductType(){ID=4,Name="Yemek", Type="sicak"}
         }.AsQueryable();
 
         public IQueryable<Table> Tables => throw new NotImplementedException();
