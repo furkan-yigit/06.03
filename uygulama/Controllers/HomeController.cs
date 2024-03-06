@@ -23,11 +23,22 @@ namespace uygulama.Controllers
         }
         
 
-        public IActionResult Privacy()
+        public IActionResult SogukIcecekler()
         {
             return View();
         }
-
+        public IActionResult SicakIcecekler()
+        {
+            return View();
+        }
+        public IActionResult Yemekler()
+        {
+            return View();
+        }
+        public IActionResult Tatlilar()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
