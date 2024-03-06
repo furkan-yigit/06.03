@@ -14,7 +14,7 @@ namespace uygulama.Models.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-NNPAIJ5; Database=KHP; Uid=sa; Pwd=789;");
+            optionsBuilder.UseSqlServer(@"DESKTOP-JI3UVS4; Database=CoffeWebSite; Uid=sa; Pwd=123;");
         }
 
 
