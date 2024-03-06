@@ -19,10 +19,10 @@
                             Dropdown button
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Soğuk İçecekler</a></li>
-                            <li><a class="dropdown-item" href="#">Sıcak İçecekler</a></li>
-                            <li><a class="dropdown-item" href="#">Yemekler</a></li>
-                            <li><a class="dropdown-item" href="#">Tatlılar</a></li>
+                            <li><a asp-controller="Home" asp-action="UrunleriGoster" asp-route-productTypeId="2" class="dropdown-item">Soğuk İçecekler</a></li>
+                            <li><a asp-controller="Home" asp-action="UrunleriGoster" asp-route-productTypeId="1" class="dropdown-item">Sıcak İçecekler</a></li>
+                            <li><a asp-controller="Home" asp-action="UrunleriGoster" asp-route-productTypeId="4" class="dropdown-item">Yemekler</a></li>
+                            <li><a asp-controller="Home" asp-action="UrunleriGoster" asp-route-productTypeId="3" class="dropdown-item">Tatlılar</a></li>
                         </ul>
                     </div>
                 </li>

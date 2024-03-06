@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewData["Title"] = "UrunleriGoster";
+}
+@model IEnumerable<Product>
+
+<h1>@ViewBag.Turu</h1>
+
+<partial name="PartialViews/_ProductListPartialView" model="@Model.ToList()" />
