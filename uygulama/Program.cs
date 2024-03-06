@@ -17,6 +17,7 @@ namespace uygulama
 
             builder.Services.AddTransient<IProductRepo, ProductRepo>();
 
+            
             var app = builder.Build();            
 
             // Configure the HTTP request pipeline.

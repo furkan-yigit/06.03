@@ -22,6 +22,7 @@ namespace uygulama.Controllers
             return View(_repo.Products);
         }
 
+
         public IActionResult Privacy()
         {
             return View();
