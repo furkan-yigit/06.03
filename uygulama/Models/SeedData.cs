@@ -19,10 +19,10 @@ namespace uygulama.Models
                 {
                    
                     context.ProductTypes.AddRange(
-                        new ProductType() {Name = "Sicak icecekler" },
-                        new ProductType() {Name = "Soguk icecekler" },
-                        new ProductType() {Name = "Tatli" },
-                        new ProductType() {Name = "Yemek" }
+                        new ProductType() {Name = "Sicak icecekler", Type="sicak" },
+                        new ProductType() {Name = "Soguk icecekler", Type = "sicak" },
+                        new ProductType() {Name = "Tatli", Type = "sicak" },
+                        new ProductType() {Name = "Yemek", Type = "sicak" }
                         );
                 }
 
@@ -34,43 +34,43 @@ namespace uygulama.Models
                     context.Products.AddRange(
                         new Product(){
                             Name = "Espresso",
-                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/espresso.png"),
+                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/espresso.png"),
                             Price = 3.50m,
                             Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ProductTypeID = 1},
                         new Product{
                             Name = "Cafe Latte",
-                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/cafe-latte.png"),
+                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cafe-latte.png"),
                             Price = 4.50m,
                             Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ProductTypeID = 1},
                         new Product{
                             Name = "Cafe Mocha",
-                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/cafe-mocha.png"),
+                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cafe-mocha.png"),
                             Price = 5.50m,
                             Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ProductTypeID = 1},
                         new Product{
                             Name = "Cappucino",
-                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/cappucino.png"),
+                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cappucino.png"),
                             Price = 6.50m,
                             Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ProductTypeID = 1},
                         new Product{
                             Name = "Americano",
-                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/americano.png"),
+                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/americano.png"),
                             Price = 1.50m,
                             Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ProductTypeID = 1},
                         new Product{
                             Name = "Espresso Macchiato",
-                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/espresso-macchiato.png"),
+                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/espresso-macchiato.png"),
                             Price = 7.50m,
                             Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ProductTypeID = 1},
                         new Product{
                             Name = "Turk Kahvesi",
-                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sica-icecek-resimleri/turk-kahvesi.png"),
+                            Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/turk-kahvesi.png"),
                             Price = 8.50m,
                             Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                             ProductTypeID = 1}
