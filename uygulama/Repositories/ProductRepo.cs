@@ -106,7 +106,7 @@ namespace uygulama.Repositories
             },new Product
             {
                 Name = "Dondurmalı Frappe",
-                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/dondurmalı-frappe.png"),
+                Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/dondurmali-frappe.png"),
                 Price = 3.50m,
                 Description = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                 ProductTypeID = 2

@@ -12,12 +12,8 @@ using uygulama.Models.Context;
 namespace uygulama.Migrations
 {
     [DbContext(typeof(CafeDbContext))]
-<<<<<<<< HEAD:uygulama/Migrations/20240306190830_init.Designer.cs
-    [Migration("20240306190830_init")]
-========
-    [Migration("20240306185605_init")]
->>>>>>>> origin/omer:uygulama/Migrations/20240306185605_init.Designer.cs
-    partial class init
+    [Migration("20240306192351_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
