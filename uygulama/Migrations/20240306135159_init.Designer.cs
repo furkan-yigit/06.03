@@ -12,7 +12,7 @@ using uygulama.Models.Context;
 namespace uygulama.Migrations
 {
     [DbContext(typeof(CafeDbContext))]
-    [Migration("20240306133636_init")]
+    [Migration("20240306135159_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,7 +126,6 @@ namespace uygulama.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");

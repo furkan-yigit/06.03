@@ -1,3 +1,17 @@
 ﻿
 
 @model List<Product>
+
+@foreach (Product item in Model)
+{
+    <div class="card">
+        <div class="card-header">@item.Name</div>
+        <div class="card-body">
+            <img src="@item.Image" alt="Alternate Text" />
+        </div>
+        <div class="card-footer">
+            <p>@item.Description</p><br />
+            <p>@item.Price</p>
+        </div>
+    </div>
+}
