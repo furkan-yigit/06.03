@@ -12,7 +12,7 @@ using uygulama.Models.Context;
 namespace uygulama.Migrations
 {
     [DbContext(typeof(CafeDbContext))]
-    [Migration("20240306175311_init")]
+    [Migration("20240306185605_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
