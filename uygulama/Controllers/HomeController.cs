@@ -36,7 +36,7 @@ namespace uygulama.Controllers
 
         public IActionResult DetayGoster(int productId)
         {
-            var arananProduct = _repo.Products.Where(p => p.ID == productId);
+            var arananProduct = _repo.Products.FirstOrDefault(p => p.ID == productId);
             return View(arananProduct);
         }
 

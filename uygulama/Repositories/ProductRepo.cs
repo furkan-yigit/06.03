@@ -13,6 +13,7 @@ namespace uygulama.Repositories
             //***Sicaklar***
             new Product()
             {
+                ID=1,
                 Name = "Espresso",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/espresso.png"),
                 Price = 3.50m,
@@ -21,6 +22,7 @@ namespace uygulama.Repositories
             },
             new Product
             {
+                ID=2,
                 Name = "Cafe Latte",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cafe-latte.png"),
                 Price = 3.50m,
@@ -29,6 +31,7 @@ namespace uygulama.Repositories
             },
             new Product
             {
+                ID=3,
                 Name = "Cafe Mocha",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cafe-mocha.png"),
                 Price = 3.50m,
@@ -37,6 +40,7 @@ namespace uygulama.Repositories
             },
             new Product
             {
+                ID=4,
                 Name = "Cappucino",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/cappucino.png"),
                 Price = 3.50m,
@@ -45,6 +49,7 @@ namespace uygulama.Repositories
             },
             new Product
             {
+                ID=5,
                 Name = "Americano",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/americano.png"),
                 Price = 3.50m,
@@ -53,6 +58,7 @@ namespace uygulama.Repositories
             },
             new Product
             {
+                ID=6,
                 Name = "Espresso Macchiato",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/espresso-macchiato.png"),
                 Price = 3.50m,
@@ -61,6 +67,7 @@ namespace uygulama.Repositories
             },
             new Product
             {
+                ID=7,
                 Name = "Turk Kahvesi",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/sicak-icecek-resimleri/turk-kahvesi.png"),
                 Price = 3.50m,
@@ -70,6 +77,7 @@ namespace uygulama.Repositories
             //***Soguklar***
             new Product
             {
+                ID=8,
                 Name = "Aqua Fresca",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/agua-fresca.jpg"),
                 Price = 3.50m,
@@ -77,6 +85,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=9,
                 Name = "Buzlu Hazir Kahve",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/buzlu-hazir-kahve.png"),
                 Price = 3.50m,
@@ -84,6 +93,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=10,
                 Name = "Cilek Limon",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/cilek-limon.png"),
                 Price = 3.50m,
@@ -91,6 +101,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=11,
                 Name = "Cold Braw Kolali",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/cold-braw-kolali.png"),
                 Price = 3.50m,
@@ -98,6 +109,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=12,
                 Name = "Dondurma Espresso",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/dondurma-espresso.png"),
                 Price = 3.50m,
@@ -105,6 +117,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=13,
                 Name = "Dondurmalı Frappe",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/dondurmali-frappe.png"),
                 Price = 3.50m,
@@ -112,6 +125,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=14,
                 Name = "Frappe",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/frappe.png"),
                 Price = 3.50m,
@@ -119,6 +133,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=15,
                 Name = "Ice Americano",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/ice-americano.png"),
                 Price = 3.50m,
@@ -126,6 +141,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=16,
                 Name = "Ice Cafe Latte",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/ice-cafe-latte.png"),
                 Price = 3.50m,
@@ -133,6 +149,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=17,
                 Name = "Iced White Chocalate Mocha",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/iced-white-chocolate-mocha.jpg"),
                 Price = 3.50m,
@@ -140,6 +157,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=18,
                 Name = "Kavun Frozen",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/kavun-frozen.png"),
                 Price = 3.50m,
@@ -147,6 +165,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=19,
                 Name = "Limonata",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/limonata.webp"),
                 Price = 3.50m,
@@ -154,6 +173,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=20,
                 Name = "Strawberry Smoothie",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/strawberry-smoothie.jpg"),
                 Price = 3.50m,
@@ -161,6 +181,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 2
             },new Product
             {
+                ID=21,
                 Name = "Visne Muz",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/soguk-icecek-resimleri/visne-muz.png"),
                 Price = 3.50m,
@@ -170,6 +191,7 @@ namespace uygulama.Repositories
             //***TATLILAR***
             new Product
             {
+                ID=22,
                 Name = "Brownie",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/brownie.png"),
                 Price = 3.50m,
@@ -178,6 +200,7 @@ namespace uygulama.Repositories
             },
             new Product
             {
+                ID=23,
                 Name = "Cikolatali Marlenka",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/cikolatali-marlenka.png"),
                 Price = 3.50m,
@@ -185,6 +208,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 3
             },new Product
             {
+                ID=24,
                 Name = "Dondurma",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/dondurma.png"),
                 Price = 3.50m,
@@ -192,6 +216,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 3
             },new Product
             {
+                ID=25,
                 Name = "Fondu",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/fondu.png"),
                 Price = 3.50m,
@@ -199,6 +224,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 3
             },new Product
             {
+                ID=26,
                 Name = "Frambuazli Cheescake",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/frambuazli-cheescake.png"),
                 Price = 3.50m,
@@ -206,6 +232,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 3
             },new Product
             {
+                ID=27,
                 Name = "Havuclu Kek",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/tatli-resimleri/havuclu-kek.png"),
                 Price = 3.50m,
@@ -215,6 +242,7 @@ namespace uygulama.Repositories
             //***YEMEKLER***
             new Product
             {
+                ID=28,
                 Name = "Cheese Burger",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/cheese-burger.png"),
                 Price = 3.50m,
@@ -222,6 +250,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=29,
                 Name = "Chicken Mushroom Stroganoff",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/chicken-mushroom-stroganoff.png"),
                 Price = 3.50m,
@@ -229,6 +258,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=30,
                 Name = "Etli Wrap",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/etli-wrap.png"),
                 Price = 3.50m,
@@ -236,6 +266,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=31,
                 Name = "Firinda Tavuk Baget",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/firinda-tavuk-baget.jpg"),
                 Price = 3.50m,
@@ -243,6 +274,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=32,
                 Name = "Food1",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/food1.jpeg"),
                 Price = 3.50m,
@@ -250,6 +282,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=33,
                 Name = "Gevrek Simit Kahvalti",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/gevrek-simit-kahvalti.png"),
                 Price = 3.50m,
@@ -257,6 +290,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=34,
                 Name = "Kahvalti Tabagi",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/kahvalti-tabagi.png"),
                 Price = 3.50m,
@@ -264,6 +298,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=35,
                 Name = "Karisik Pizza",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/karisik-pizza.png"),
                 Price = 3.50m,
@@ -271,6 +306,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=36,
                 Name = "Klasik Menemen",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/klasik-menemen.png"),
                 Price = 3.50m,
@@ -278,6 +314,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=37,
                 Name = "Omlet",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/omlet.png"),
                 Price = 3.50m,
@@ -285,6 +322,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=38,
                 Name = "Phily Steak",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/phily-steak.png"),
                 Price = 3.50m,
@@ -292,6 +330,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=39,
                 Name = "Sebzeli Soslu Tavuk",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/sebzeli-soslu-tavuk.jpg"),
                 Price = 3.50m,
@@ -299,6 +338,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=40,
                 Name = "Su Boregi",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/su-boregi.png"),
                 Price = 3.50m,
@@ -306,6 +346,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=41,
                 Name = "Tavuk Kebabi",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/tavuk-kebabi.jpg"),
                 Price = 3.50m,
@@ -313,6 +354,7 @@ namespace uygulama.Repositories
                 ProductTypeID = 4
             },new Product
             {
+                ID=42,
                 Name = "Yumurtali Ekmek",
                 Image = System.IO.File.ReadAllBytes("wwwroot/Images/yemek-resimleri/yumurtali-ekmek.png"),
                 Price = 3.50m,
