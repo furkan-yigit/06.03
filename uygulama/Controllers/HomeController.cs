@@ -35,7 +35,7 @@ namespace uygulama.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string UserName, string Password)
+        public async Task<IActionResult> Login(string returnURL, string UserName, string Password)
         {
             var girisYapanKullanici = _context.UserRoles.Where(x => x.User.UserName == UserName && x.User.Password == Password).Select(x=>new { 
                 
@@ -66,7 +66,12 @@ namespace uygulama.Controllers
 
                 await HttpContext.SignInAsync(principal, props);
 
-                return RedirectToAction("Index", "Admin");
+                if (girisYapanKullanici.Role == "Admin")
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+
+                return Redirect(returnURL);
             }
 
             return View();
@@ -77,7 +82,12 @@ namespace uygulama.Controllers
             await HttpContext.SignOutAsync(); 
             return RedirectToAction("Index", "Home");
         }
-        
+
+        public IActionResult ErisimEngellendi()
+        {
+            return View();//Authentication dan gecemeyen kullanicilari Authorize etme (yetkilendirme) ve bu sayfayi goster.
+        }
+
 
 
         public IActionResult UrunleriGoster(int productTypeId)

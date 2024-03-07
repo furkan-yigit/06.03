@@ -25,11 +25,11 @@ namespace uygulama
 
                 options.LoginPath = "/Home/Login";// Login islemleri icin hangi sayfa kullanilacak.
                 //options.LogoutPath = "/Admin/Admin/Logout";
-                options.AccessDeniedPath = "/Home/Login";// Yetkisiz kisilerin yonlendirilecegi sayfa
+                options.AccessDeniedPath = "/Home/ErisimEngellendi";// Yetkisiz kisilerin yonlendirilecegi sayfa
                 options.ExpireTimeSpan = System.TimeSpan.FromMinutes(60);// Cookie ne zaman bitecek?
                 options.Events.OnRedirectToLogin = context =>
                 {
-                    
+                    context.Response.Redirect(context.RedirectUri);
                     return Task.CompletedTask;
                 };// login islemi gerceklestirildikten sonra htttp context ile gelen bilgiye gore hangi sayfadan login e yonlendirildiyse geri o sayfaya donsun
             });
