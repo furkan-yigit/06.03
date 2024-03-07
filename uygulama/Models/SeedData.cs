@@ -76,7 +76,49 @@ namespace uygulama.Models
                             ProductTypeID = 1}
                        );
                 }
+                context.SaveChanges();
 
+
+
+                //****USERS SEEDDATA****
+                if (!context.Users.Any())
+                {
+
+                    context.Users.AddRange(
+                        new User() {UserName = "furkan", Password = "123456" },
+                        new User() {UserName = "gorkem", Password = "123456" },
+                        new User() {UserName = "omer", Password = "123456" },
+                        new User() {UserName = "atalay", Password = "123456" }
+                        );
+                }
+                context.SaveChanges();
+
+
+
+                //****ROLES SEEDDATA****
+                if (!context.Roles.Any())
+                {
+
+                    context.Roles.AddRange(
+                        new Role() {UserRole = "Admin", Description = "Admin Role" },
+                        new Role() {UserRole = "Employee", Description = "Employee Role" }
+                        );
+                }
+                context.SaveChanges();
+
+
+
+                //****USER ROLES SEEDDATA****
+                if (!context.UserRoles.Any())
+                {
+
+                    context.UserRoles.AddRange(
+                        new UserRole() {UserID = 1, RoleID = 2 },
+                        new UserRole() {UserID = 2, RoleID = 1 },
+                        new UserRole() {UserID = 3, RoleID = 2 },
+                        new UserRole() {UserID = 4, RoleID = 1 }
+                        );
+                }
                 context.SaveChanges();
 
 
