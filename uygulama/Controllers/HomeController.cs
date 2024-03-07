@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Security.Claims;
 using uygulama.Entities;
 using uygulama.Models;
 using uygulama.Models.Context;
@@ -12,48 +14,79 @@ namespace uygulama.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepo _repo;
-        public HomeController(ILogger<HomeController> logger, IProductRepo repo)
+        private readonly CafeDbContext _context;
+        public HomeController(ILogger<HomeController> logger, IProductRepo repo, CafeDbContext context)
         {
             _logger = logger;
             _repo = repo;
+            _context = context;
         }
-        
+
         public IActionResult Index()
         {
             return View(_repo.Products);
         }
 
-        public IActionResult Login()
+        [HttpGet]
+        public IActionResult Login(string returnURL) // Login sayfasina nereden geldigimizi tutmak icin parametre aldik.
         {
+            ViewBag.ReturnURL = returnURL; // Login sayfasina ViewBag ile geri donecegimiz sayfa bilgisini aktarabiliriz.
             return View();
         }
 
-
         [HttpPost]
-        public IActionResult Login(User user)
+        public async Task<IActionResult> Login(string returnURL, string UserName, string Password)
         {
-            if (ModelState.IsValid)
+            var girisYapanKullanici = _context.UserRoles.Where(x => x.User.UserName == UserName && x.User.Password == Password).Select(x=>new { 
+                
+                Id = x.User.ID,
+                UserName = x.User.UserName,
+                Password=x.User.Password,
+                Role= x.Role.UserRole
+            }).FirstOrDefault();
+
+            if (girisYapanKullanici != null)
             {
-                var authenticatedUser = _repo.Users
-                .Include(u => u.UserRoles)
-                .ThenInclude(ur => ur.Role)
-                .FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
-
-                if (authenticatedUser != null)
+                var claims = new List<Claim>()
                 {
-                    if (authenticatedUser.UserRoles.Any(ur => ur.RoleID == 1))
-                    {
-                        return RedirectToAction("Index","Admin");
-                    }
+                    new Claim("ID", girisYapanKullanici.Id.ToString()),
+                    new Claim(ClaimTypes.Name, girisYapanKullanici.UserName),
+                    new Claim(ClaimTypes.Surname, girisYapanKullanici.Password),
+                    new Claim(ClaimTypes.Role, girisYapanKullanici.Role),
+                };
 
-                    return RedirectToAction("Index");
+                var userIdentity = new ClaimsIdentity(claims, "login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+
+                var props = new AuthenticationProperties()
+                {
+                    IsPersistent = true,
+                    ExpiresUtc = DateTime.Now.AddMinutes(10),
+                };
+
+                await HttpContext.SignInAsync(principal, props);
+
+                if (girisYapanKullanici.Role == "Admin")
+                {
+                    return RedirectToAction("Index", "Admin");
                 }
+
+                return Redirect(returnURL);
             }
 
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-            return View(user);
+            return View();
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(); 
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult ErisimEngellendi()
+        {
+            return View();//Authentication dan gecemeyen kullanicilari Authorize etme (yetkilendirme) ve bu sayfayi goster.
+        }
 
 
 

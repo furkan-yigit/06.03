@@ -14,24 +14,24 @@ namespace uygulama
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-NNPAIJ5; Database=CAFEWebSite; Uid=sa; Pwd=789;"));
-            builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-JI3UVS4; Database= CAFEWebSite; Uid=sa; Pwd=123;"));
-          //  builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=G™RKEMH; Database= CAFEWebSite; Uid=sa; Pwd=123;"));
+            builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-NNPAIJ5; Database=CAFEWebSite; Uid=sa; Pwd=789;"));
+            //builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=DESKTOP-JI3UVS4; Database= CAFEWebSite; Uid=sa; Pwd=123;"));
+            //builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=G™RKEMH; Database= CAFEWebSite; Uid=sa; Pwd=123;"));
 
             builder.Services.AddTransient<IProductRepo, ProductRepo>();
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
 
-                options.LoginPath = "/Admin/Admin/Login";
-                options.LogoutPath = "/Admin/Admin/Logout";
-                options.AccessDeniedPath = "/Admin/Admin/Login";
-                options.ExpireTimeSpan = System.TimeSpan.FromMinutes(60);
+                options.LoginPath = "/Home/Login";// Login islemleri icin hangi sayfa kullanilacak.
+                //options.LogoutPath = "/Admin/Admin/Logout";
+                options.AccessDeniedPath = "/Home/ErisimEngellendi";// Yetkisiz kisilerin yonlendirilecegi sayfa
+                options.ExpireTimeSpan = System.TimeSpan.FromMinutes(60);// Cookie ne zaman bitecek?
                 options.Events.OnRedirectToLogin = context =>
                 {
                     context.Response.Redirect(context.RedirectUri);
                     return Task.CompletedTask;
-                };
+                };// login islemi gerceklestirildikten sonra htttp context ile gelen bilgiye gore hangi sayfadan login e yonlendirildiyse geri o sayfaya donsun
             });
            
             
