@@ -6,5 +6,10 @@
         public string UserName { get; set; }
         public string Password { get; set; }
         public List<UserRole> UserRoles{ get; set; }
+
+        public User()
+        {
+            UserRoles = new List<UserRole>();
+        }
     }
 }

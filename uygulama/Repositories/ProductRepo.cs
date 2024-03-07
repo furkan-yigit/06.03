@@ -382,10 +382,10 @@ namespace uygulama.Repositories
 
         public IQueryable<User> Users => new List<User>
         {
-            new User(){ID=1,UserName="furkan",Password="123456"},
-            new User(){ID=2,UserName="gorkem",Password="123456"},
-            new User(){ID=3,UserName="omer",Password="123456"},
-            new User(){ID=4,UserName="atalay",Password="123456"},
+            new User(){ID=1,UserName="furkan",Password="123456",UserRoles = new List<UserRole>() { new UserRole() { UserID = 1, RoleID = 2 } }},
+            new User(){ID=2,UserName="gorkem",Password="123456",UserRoles = new List<UserRole>() { new UserRole() { UserID = 2, RoleID = 1 } }},
+            new User(){ID=3,UserName="omer",Password="123456",UserRoles = new List<UserRole>() { new UserRole() { UserID = 3, RoleID = 2 } }},
+            new User(){ID=4,UserName="atalay",Password="123456",UserRoles = new List<UserRole>() { new UserRole() { UserID = 4, RoleID = 1 } }},
         }.AsQueryable();
 
         public IQueryable<Role> Roles => new List<Role>

@@ -23,7 +23,38 @@ namespace uygulama.Controllers
             return View(_repo.Products);
         }
 
-        
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                var authenticatedUser = _repo.Users
+                .Include(u => u.UserRoles)
+                .ThenInclude(ur => ur.Role)
+                .FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
+
+                if (authenticatedUser != null)
+                {
+                    if (authenticatedUser.UserRoles.Any(ur => ur.RoleID == 1))
+                    {
+                        return RedirectToAction("Index","Admin");
+                    }
+
+                    return RedirectToAction("Index");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return View(user);
+        }
+
+
 
 
         public IActionResult UrunleriGoster(int productTypeId)
