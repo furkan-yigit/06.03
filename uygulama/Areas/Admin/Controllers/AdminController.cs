@@ -10,10 +10,7 @@ namespace uygulama.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Products()
-        {
-            return View();
-        }
+        
 
     }
 }
