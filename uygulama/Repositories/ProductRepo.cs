@@ -7,7 +7,7 @@ namespace uygulama.Repositories
 
         #region SeedData
 
-        
+
         public IQueryable<Product> Products => new List<Product>()
         {
             //***Sicaklar***
@@ -337,6 +337,28 @@ namespace uygulama.Repositories
         public IQueryable<OrderProduct> OrderProducts => throw new NotImplementedException();
 
         public IQueryable<Order> Orders => throw new NotImplementedException();
+
+        public IQueryable<User> Users => new List<User>
+        {
+            new User(){ID=1,UserName="furkan",Password="123456"},
+            new User(){ID=2,UserName="gorkem",Password="123456"},
+            new User(){ID=3,UserName="omer",Password="123456"},
+            new User(){ID=4,UserName="atalay",Password="123456"},
+        }.AsQueryable();
+
+        public IQueryable<Role> Roles => new List<Role>
+        {
+            new Role(){ID=1,UserRole="Admin",Description="Admin Role"},
+            new Role(){ID=2,UserRole="Employee",Description="Employee Role"}
+        }.AsQueryable();
+
+        public IQueryable<UserRole> UserRoles => new List<UserRole>
+        {
+            new UserRole(){ID=1,UserID=1,RoleID=2},
+            new UserRole(){ID=2,UserID=2,RoleID=1},
+            new UserRole(){ID=3,UserID=3,RoleID=2},
+            new UserRole(){ID=4,UserID=4,RoleID=1}
+        }.AsQueryable();
 
         public bool DeleteProduct(int id)
         {
