@@ -2,6 +2,7 @@
 
 namespace uygulama.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AdminController : Controller
     {
         public IActionResult Index()
@@ -9,10 +10,7 @@ namespace uygulama.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Products()
-        {
-            return View();
-        }
+        
 
     }
 }
