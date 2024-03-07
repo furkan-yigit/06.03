@@ -50,6 +50,7 @@ namespace uygulama
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
             SeedData.Seed(app);
 
