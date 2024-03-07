@@ -22,11 +22,13 @@ namespace uygulama
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
-
-                options.LoginPath = "/Home/Login";// Login islemleri icin hangi sayfa kullanilacak.
-                //options.LogoutPath = "/Admin/Admin/Logout";
                 options.AccessDeniedPath = "/Home/ErisimEngellendi";// Yetkisiz kisilerin yonlendirilecegi sayfa
                 options.ExpireTimeSpan = System.TimeSpan.FromMinutes(60);// Cookie ne zaman bitecek?
+                options.SlidingExpiration = true;
+                options.LoginPath = "/Home/Login";// Login islemleri icin hangi sayfa kullanilacak.
+                //options.LogoutPath = "/Admin/Admin/Logout";
+                
+                
                 options.Events.OnRedirectToLogin = context =>
                 {
                     context.Response.Redirect(context.RedirectUri);
