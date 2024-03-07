@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using uygulama.Models;
 using uygulama.Models.Context;
@@ -19,6 +20,20 @@ namespace uygulama
 
             builder.Services.AddTransient<IProductRepo, ProductRepo>();
 
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+            {
+
+                options.LoginPath = "/Admin/Admin/Login";
+                options.LogoutPath = "/Admin/Admin/Logout";
+                options.AccessDeniedPath = "/Admin/Admin/Login";
+                options.ExpireTimeSpan = System.TimeSpan.FromMinutes(60);
+                options.Events.OnRedirectToLogin = context =>
+                {
+                    context.Response.Redirect(context.RedirectUri);
+                    return Task.CompletedTask;
+                };
+            });
+           
             
             var app = builder.Build();            
 
