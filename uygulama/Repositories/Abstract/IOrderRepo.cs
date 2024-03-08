@@ -12,5 +12,7 @@ namespace uygulama.Repositories.Abstract
         bool UpdateOrder(Order order);
         bool DeleteOrder(int id);
         int SaveOrder(); //EF Core savechanges() metodu geriye int değer döndürür.
+        IQueryable<Table> GetTables();
+        IQueryable<Product> GetProducts();
     }
 }

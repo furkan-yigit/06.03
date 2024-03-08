@@ -1,124 +1,137 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using uygulama.Entities;
+using uygulama.Models.ViewModels;
+using uygulama.Repositories.Abstract;
 
 namespace uygulama.Areas.Employee.Controllers
 {
     [Area("Employee")]
     public class OrderController : Controller
     {
-        //private readonly IOrderRepository _orderRepository;
+        private readonly IOrderRepo _orderRepo;
 
-        //public OrderController(IOrderRepository orderRepository)
-        //{
-        //    _orderRepository=orderRepository;
-        //}
+        public OrderController(IOrderRepo orderRepo)
+        {
+            _orderRepo = orderRepo;
+        }
 
 
 
-        
-        //public ActionResult Index()
-        //{
-        //    var order = _orderRepository.GetTumOrderlar();
-        //    return View(order);
-        //}
 
-        
-        //public ActionResult Details(int id)
-        //{
-        //    var order = _orderRepository.GetOrderByID(id);
-        //    return View(order);
-        //}
+        public ActionResult Index()
+        {
+            var order = _orderRepo.GetTumOrders();
+            return View(order);
+        }
 
-        
-        //public ActionResult Create()
-        //{
-        //    var orderViewModel = new OrderViewModel
-        //    {
-        //        Tables = GetTablesList(),
-        //        Products = GetProductList()
-        //    };
 
-        //    return View(orderViewModel);
-        //}
+        public ActionResult Details(int id)
+        {
+            var order = _orderRepo.GetOrderByID(id);
+            return View(order);
+        }
 
-        
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(OrderViewModel orderViewModel)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-                
-        //        var order = new Order
-        //        {
-        //            IsPayment = false,
-        //            Price = orderViewModel.Price,
-        //            OrderDate = DateTime.Now,
-        //            TableID = orderViewModel.TableID
-        //        };
 
-        //        order.OrderProducts = new List<OrderProduct>();
-        //        foreach (var item in orderViewModel.ProductIDs)
-        //        {
-        //            var orderProduct = new OrderProduct
-        //            {
-        //                Quantity = 1,
-        //                UnitPrice = _orderRepository.GetProductByID(item).Price,
-        //                ProductID = item
-        //            };
-        //            order.OrderProducts.Add(orderProduct);
-        //        }
+        public ActionResult Create()
+        {
+            var orderViewModel = new OrderViewModel
+            {
+                Tables = _orderRepo.GetTables().ToList(),
+                Products = _orderRepo.GetProducts().ToList()
+            };
 
-        //        _orderRepository.AddOrder(order);
-        //        return RedirectToAction("Index");
-        //    }
+            return View(orderViewModel);
+        }
 
-        //    orderViewModel.Tables = GetTableList(); 
-        //    orderViewModel.Products = GetProductList(); 
-        //    return View(orderViewModel);
-        //}
 
-       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(OrderViewModel orderViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var order = new Order
+                {
+                    IsPayment = false,
+                    Price = orderViewModel.Price,
+                    OrderDate = DateTime.Now,
+                    TableID = orderViewModel.TableID
+                };
+
+                order.OrderProducts = new List<OrderProduct>();
+                foreach (var item in orderViewModel.ProductIDs)
+                {
+                    var orderProduct = new OrderProduct
+                    {
+                        Quantity = 1,
+                        UnitPrice = _orderRepo.GetOrderByID(item).Price,
+                        ProductID = item
+                    };
+                    order.OrderProducts.Add(orderProduct);
+                }
+
+                _orderRepo.AddOrder(order);
+                return RedirectToAction("Index");
+            }
+
+            orderViewModel.Tables = _orderRepo.GetTables().ToList();
+            orderViewModel.Products = _orderRepo.GetProducts().ToList();
+            return View(orderViewModel);
+        }
+
+
         public ActionResult Edit(int id)
         {
-            return View();
+            var orderViewModel = new OrderViewModel
+            {
+                Order = _orderRepo.GetOrderByID(id),
+                Tables = _orderRepo.GetTables().ToList(),
+                Products = _orderRepo.GetProducts().ToList()
+            };
+
+            return View(orderViewModel);
         }
 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, OrderViewModel orderViewModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var order = _orderRepo.GetOrderByID(id);
+                order.Price = orderViewModel.Price;
+
+                order.OrderProducts.Clear();
+                foreach (var item in orderViewModel.ProductIDs)
+                {
+                    var orderProduct = new OrderProduct
+                    {
+                        Quantity = 1,
+                        UnitPrice = _orderRepo.GetOrderByID(item).Price,
+                        ProductID = item
+                    };
+                    order.OrderProducts.Add(orderProduct);
+                }
+
+                _orderRepo.UpdateOrder(order);
+                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            orderViewModel.Tables= _orderRepo.GetTables().ToList();
+            orderViewModel.Products= _orderRepo.GetProducts().ToList();
+            return View(orderViewModel);
         }
 
         
         public ActionResult Delete(int id)
         {
-            return View();
+            _orderRepo.DeleteOrder(id);
+            return RedirectToAction("Index");
         }
-
         
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }

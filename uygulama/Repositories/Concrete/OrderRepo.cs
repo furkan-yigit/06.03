@@ -37,6 +37,16 @@ namespace uygulama.Repositories.Concrete
             return _context.Orders.Include(x => x.Table).FirstOrDefault(z => z.ID == id); // ilgili öğrenci ve okulu bilgisini döndürü SQL JOIN metodu gibi
         }
 
+        public IQueryable<Product> GetProducts()
+        {
+            return _context.Products;
+        }
+
+        public IQueryable<Table> GetTables()
+        {
+            return _context.Tables;
+        }
+
         public List<Order> GetTumOrders()
         {
             return _context.Orders.Include(x => x.Table).ToList();

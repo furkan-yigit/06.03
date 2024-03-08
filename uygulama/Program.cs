@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using uygulama.Models;
 using uygulama.Models.Context;
 using uygulama.Repositories;
+using uygulama.Repositories.Abstract;
+using uygulama.Repositories.Concrete;
 
 namespace uygulama
 {
@@ -19,6 +21,8 @@ namespace uygulama
             //builder.Services.AddDbContext<CafeDbContext>(options => options.UseSqlServer(@"Server=G™RKEMH; Database= CAFEWebSite; Uid=sa; Pwd=123;"));
 
             builder.Services.AddTransient<IProductRepo, ProductRepo>();
+            builder.Services.AddTransient<IOrderRepo, OrderRepo>();
+            builder.Services.AddTransient<IOrderProductRepo, OrderProductRepo>();
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
