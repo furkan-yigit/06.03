@@ -1,50 +1,91 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using uygulama.Entities;
 
 namespace uygulama.Areas.Employee.Controllers
 {
+    [Area("Employee")]
     public class OrderController : Controller
     {
-        // GET: OrderController
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //private readonly IOrderRepository _orderRepository;
 
-        // GET: OrderController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public OrderController(IOrderRepository orderRepository)
+        //{
+        //    _orderRepository=orderRepository;
+        //}
 
-        // GET: OrderController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: OrderController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: OrderController/Edit/5
+        
+        //public ActionResult Index()
+        //{
+        //    var order = _orderRepository.GetTumOrderlar();
+        //    return View(order);
+        //}
+
+        
+        //public ActionResult Details(int id)
+        //{
+        //    var order = _orderRepository.GetOrderByID(id);
+        //    return View(order);
+        //}
+
+        
+        //public ActionResult Create()
+        //{
+        //    var orderViewModel = new OrderViewModel
+        //    {
+        //        Tables = GetTablesList(),
+        //        Products = GetProductList()
+        //    };
+
+        //    return View(orderViewModel);
+        //}
+
+        
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(OrderViewModel orderViewModel)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+                
+        //        var order = new Order
+        //        {
+        //            IsPayment = false,
+        //            Price = orderViewModel.Price,
+        //            OrderDate = DateTime.Now,
+        //            TableID = orderViewModel.TableID
+        //        };
+
+        //        order.OrderProducts = new List<OrderProduct>();
+        //        foreach (var item in orderViewModel.ProductIDs)
+        //        {
+        //            var orderProduct = new OrderProduct
+        //            {
+        //                Quantity = 1,
+        //                UnitPrice = _orderRepository.GetProductByID(item).Price,
+        //                ProductID = item
+        //            };
+        //            order.OrderProducts.Add(orderProduct);
+        //        }
+
+        //        _orderRepository.AddOrder(order);
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    orderViewModel.Tables = GetTableList(); 
+        //    orderViewModel.Products = GetProductList(); 
+        //    return View(orderViewModel);
+        //}
+
+       
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: OrderController/Edit/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +100,13 @@ namespace uygulama.Areas.Employee.Controllers
             }
         }
 
-        // GET: OrderController/Delete/5
+        
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: OrderController/Delete/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
