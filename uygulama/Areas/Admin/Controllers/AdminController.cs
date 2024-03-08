@@ -10,6 +10,10 @@ namespace uygulama.Areas.Admin.Controllers
             return View();
         }
 
+        public IActionResult Logout()
+        {
+            return RedirectToAction("Index", "Home");   
+        }
         
 
     }
