@@ -63,6 +63,13 @@ namespace uygulama
                 pattern: "Admin/{controller=Admin}/{action=Index}/{id?}"
                 );
 
+            //EMPLOYEE
+            app.MapAreaControllerRoute(
+                name: "EmployeeArea",
+                areaName: "Employee",
+                pattern: "Employee/{controller=Employee}/{action=Index}/{id?}"
+                );
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
