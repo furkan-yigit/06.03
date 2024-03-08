@@ -8,5 +8,12 @@
         public DateTime OrderDate { get; set; }
         public int TableID { get; set; }
         public Table Table { get; set; }
+
+        public List<OrderProduct> OrderProducts { get; set; }
+
+        public Order()
+        {
+            OrderProducts = new List<OrderProduct>();
+        }
     }
 }

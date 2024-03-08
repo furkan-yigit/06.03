@@ -24,7 +24,7 @@ namespace uygulama.Controllers
 
         public IActionResult Index()
         {
-            return View(_repo.Products);
+            return View(_repo.GetAllProduct());
         }
 
         [HttpGet]
@@ -92,15 +92,15 @@ namespace uygulama.Controllers
 
         public IActionResult UrunleriGoster(int productTypeId)
         {
-            var arananProduct = _repo.Products.Where(p => p.ProductTypeID == productTypeId);
-            string turu = _repo.ProductTypes.FirstOrDefault(x => x.ID == productTypeId).Name;
+            var arananProduct = _repo.GetAllProduct().Where(p => p.ProductTypeID == productTypeId);
+            string turu = _context.ProductTypes.FirstOrDefault(x => x.ID == productTypeId).Name;
             ViewBag.Turu = turu;
             return View(arananProduct);
         }
 
         public IActionResult DetayGoster(int productId)
         {
-            var arananProduct = _repo.Products.FirstOrDefault(p => p.ID == productId);
+            var arananProduct = _repo.GetAllProduct().FirstOrDefault(p => p.ID == productId);
             return View(arananProduct);
         }
 

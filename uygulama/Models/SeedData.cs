@@ -330,10 +330,22 @@ namespace uygulama.Models
                         }
                        );
                 }
-                context.SaveChanges();               
+                context.SaveChanges();
 
                 #endregion
 
+                //***Tables SEEDDATA***
+                if (!context.Tables.Any())
+                {
+
+                    context.Tables.AddRange(
+                        new Table() { TableName="bahce"},
+                        new Table() { TableName="balkon"},
+                        new Table() { TableName="ic mekan"},
+                        new Table() { TableName="sahne"}
+                        );
+                }
+                context.SaveChanges();
 
 
                 //****USERS SEEDDATA****
