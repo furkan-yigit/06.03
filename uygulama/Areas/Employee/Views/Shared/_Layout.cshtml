@@ -10,7 +10,44 @@
 </head>
 <body>
     <header>
-        @await Component.InvokeAsync("Navbar")
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cafe Menü</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Login" asp-route-returnURL="Index">Login</a>
+                        </li>
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-controller="Order" asp-action="Index">Order</a>
+                        </li>
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-controller="Employee" asp-action="Index">Order</a>
+                        </li>
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-controller="OrderProduct" asp-action="Index">OrderProduct</a>
+                        </li>
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            @using System.Security.Claims
+                            <span class="navbar-text">Hoşgeldiniz, @User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value</span>
+                        </li>
+                        <li class="nav-item">
+                            <span class="navbar-text">Rol: @User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

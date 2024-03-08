@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using uygulama.Entities;
 using uygulama.Models;
 using uygulama.Models.Context;
 using uygulama.Repositories;
