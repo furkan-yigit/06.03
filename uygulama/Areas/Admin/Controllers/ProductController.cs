@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using uygulama.Entities;
 
 namespace uygulama.Areas.Admin.Controllers
 {
@@ -61,7 +62,7 @@ namespace uygulama.Areas.Admin.Controllers
 
         // GET: ProductController/Delete/5
         public ActionResult Delete(int id)
-        {
+        {           
             return View();
         }
 
