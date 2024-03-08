@@ -10,5 +10,11 @@
         public string Description { get; set; }
         public int ProductTypeID { get; set; }
         public ProductType ProductType { get; set; }
+        public List<OrderProduct> OrderProducts { get; set; }
+
+        public Product()
+        {
+            OrderProducts = new List<OrderProduct>();
+        }
     }
 }
